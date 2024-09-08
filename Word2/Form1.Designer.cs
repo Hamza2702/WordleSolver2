@@ -1,6 +1,6 @@
 ﻿namespace Word2
 {
-    partial class Form1
+    partial class WordleSolver
     {
         /// <summary>
         /// Required designer variable.
@@ -338,6 +338,7 @@
             this.btnInvalidClear.TabIndex = 24;
             this.btnInvalidClear.Text = "Clear";
             this.btnInvalidClear.UseVisualStyleBackColor = true;
+            this.btnInvalidClear.Click += new System.EventHandler(this.btnInvalidClear_Click);
             // 
             // btnAddRow
             // 
@@ -350,7 +351,7 @@
             this.btnAddRow.UseVisualStyleBackColor = true;
             this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
             // 
-            // Form1
+            // WordleSolver
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -371,8 +372,8 @@
             this.Controls.Add(this.lblPossibleWords);
             this.Controls.Add(this.listBoxWords);
             this.Controls.Add(this.lblWordle);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.Name = "WordleSolver";
+            this.Load += new System.EventHandler(this.FormLoad);
             this.groupBoxCorrect.ResumeLayout(false);
             this.groupBoxCorrect.PerformLayout();
             this.groupBox1.ResumeLayout(false);

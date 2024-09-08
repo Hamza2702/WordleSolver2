@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -10,19 +11,38 @@ using System.Windows.Forms;
 
 namespace Word2
 {
-    public partial class Form1 : Form
+    public partial class WordleSolver : Form
     {
         int existingTextBoxCount = 5;
         int newTextBoxCount = 5;
+        List<String> words = new List<String>();
 
-        public Form1()
+        public WordleSolver()
         {
             InitializeComponent();
+        }
+        private void FormLoad(object sender, EventArgs e)
+        {
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MinimizeBox = false;
+            this.MaximizeBox = false;
+
+            // Load words
+            LoadWordsFromFile("words.txt");
         }
 
         private void btnAddRow_Click(object sender, EventArgs e)
         {
             AddRow();
+        }
+
+
+        private void btnInvalidClear_Click(object sender, EventArgs e)
+        {
+            foreach (var txtBoxInvalid in groupBoxInvalid.Controls.OfType<TextBox>())
+            {
+                txtBoxInvalid.Clear();
+            }
         }
 
         private void AddRow()
@@ -60,6 +80,31 @@ namespace Word2
                 existingTextBoxCount += newTextBoxCount;
             }
             newTextBoxCount += 5;
+        }
+
+        private void LoadWordsFromFile(string filePath)
+        {
+            // Check if the file exists
+            if (File.Exists(filePath))
+            {
+                // Read all lines from file
+                string[] fileWords = File.ReadAllLines(filePath);
+
+                foreach (var item in fileWords)
+                {
+                    string word = item.Trim().ToLower();
+
+                    // Add word if it isn't empty
+                    if (!string.IsNullOrEmpty(word))
+                    {
+                        words.Add(word);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("File doesn't exist");
+            }
         }
     }
 }

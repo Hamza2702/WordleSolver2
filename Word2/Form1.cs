@@ -8,6 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using TextBox = System.Windows.Forms.TextBox;
 
 namespace Word2
 {
@@ -17,10 +19,27 @@ namespace Word2
         int newTextBoxCount = 5;
         List<String> words = new List<String>();
 
+        List<String> invalidLetters = new List<String>();
+        List<String> validLetters = new List<String>();
+        List<String> correctLetters = new List<String>();
         public WordleSolver()
         {
             InitializeComponent();
+            foreach (Control control in groupBoxCorrect.Controls)
+            {
+                if (control is TextBox)
+                {
+                    (control as TextBox).TextChanged += TxtBoxCorrect1_TextChanged;
+                }
+            }
         }
+
+        private void TxtBoxCorrect1_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox1 = sender as TextBox;
+            MessageBox.Show($"{txtBoxCorrect1.Name} text changed to: {txtBoxCorrect1.Text}");
+        }
+
         private void FormLoad(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;

@@ -70,6 +70,7 @@
             this.txtBoxCorrect1.Name = "txtBoxCorrect1";
             this.txtBoxCorrect1.Size = new System.Drawing.Size(20, 31);
             this.txtBoxCorrect1.TabIndex = 15;
+            this.txtBoxCorrect1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect1_KeyUp);
             // 
             // label1
             // 
@@ -155,6 +156,7 @@
             this.btnCorrectClear.TabIndex = 16;
             this.btnCorrectClear.Text = "Clear";
             this.btnCorrectClear.UseVisualStyleBackColor = true;
+            this.btnCorrectClear.Click += new System.EventHandler(this.btnCorrectClear_Click);
             // 
             // groupBoxCorrect
             // 
@@ -200,6 +202,7 @@
             this.txtBoxCorrect2.Name = "txtBoxCorrect2";
             this.txtBoxCorrect2.Size = new System.Drawing.Size(20, 31);
             this.txtBoxCorrect2.TabIndex = 16;
+            this.txtBoxCorrect2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect2_KeyUp);
             // 
             // groupBox1
             // 

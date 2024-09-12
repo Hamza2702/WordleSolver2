@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(WordleSolver));
             this.txtBoxCorrect1 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.lblExclude = new System.Windows.Forms.Label();
@@ -119,21 +120,23 @@
             // lblPossibleWords
             // 
             this.lblPossibleWords.AutoSize = true;
-            this.lblPossibleWords.Font = new System.Drawing.Font("Poppins", 20F, System.Drawing.FontStyle.Bold);
+            this.lblPossibleWords.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPossibleWords.ForeColor = System.Drawing.Color.White;
-            this.lblPossibleWords.Location = new System.Drawing.Point(379, 132);
+            this.lblPossibleWords.Location = new System.Drawing.Point(379, 127);
             this.lblPossibleWords.Name = "lblPossibleWords";
-            this.lblPossibleWords.Size = new System.Drawing.Size(234, 48);
+            this.lblPossibleWords.Size = new System.Drawing.Size(227, 42);
             this.lblPossibleWords.TabIndex = 9;
-            this.lblPossibleWords.Text = "Possible words:";
+            this.lblPossibleWords.Text = "Possible words: 0";
             // 
             // listBoxWords
             // 
             this.listBoxWords.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.listBoxWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxWords.FormattingEnabled = true;
-            this.listBoxWords.Location = new System.Drawing.Point(386, 182);
+            this.listBoxWords.ItemHeight = 16;
+            this.listBoxWords.Location = new System.Drawing.Point(386, 169);
             this.listBoxWords.Name = "listBoxWords";
-            this.listBoxWords.Size = new System.Drawing.Size(227, 338);
+            this.listBoxWords.Size = new System.Drawing.Size(265, 288);
             this.listBoxWords.TabIndex = 8;
             // 
             // lblWordle
@@ -362,7 +365,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(701, 581);
+            this.ClientSize = new System.Drawing.Size(681, 581);
             this.Controls.Add(this.btnAddRow);
             this.Controls.Add(this.btnInvalidClear);
             this.Controls.Add(this.btnValidClear);
@@ -378,7 +381,9 @@
             this.Controls.Add(this.lblPossibleWords);
             this.Controls.Add(this.listBoxWords);
             this.Controls.Add(this.lblWordle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "WordleSolver";
+            this.Text = "Wordle Solver";
             this.Load += new System.EventHandler(this.FormLoad);
             this.groupBoxCorrect.ResumeLayout(false);
             this.groupBoxCorrect.PerformLayout();

@@ -23,6 +23,7 @@ namespace Word2
         Stack<String> validLetters = new Stack<string>();
         List<string> correctLetters = new List<string>(new string[5]);
         string[] currentWord = new string[5];
+        string letter;
         public WordleSolver()
         {
             InitializeComponent();
@@ -69,6 +70,7 @@ namespace Word2
         }
         private void FindCorrectWord()
         {
+            int wordCount = 0;
             // Clear list
             listBoxWords.Items.Clear();
 
@@ -93,26 +95,47 @@ namespace Word2
             // Add to list box
             foreach (var word in filteredWords)
             {
+                wordCount++;
                 listBoxWords.Items.Add(word);
             }
+
+            // Update label
+            lblPossibleWords.Text = ($"Possible words: {wordCount}");
         }
 
         private void TxtBoxCorrect1_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
 
             // If empty don't process
             if (string.IsNullOrEmpty(textbox.Text))
             {
                 correctLetters[0] = "";
+            } else if (letter.Length != 1)
+            {
+                textbox.Clear();
+                return;
+            } else if (letter.All(char.IsUpper))
+            {
+                textbox.Text = letter.ToLower();
             }
             else
             {
                 correctLetters[0] = textbox.Text;
             }
 
+
             FilterLetter(textbox);
             FindCorrectWord();
+
+            // Focus onto next textbox
+            GroupBox groupBox = textbox.Parent as GroupBox;
+            if (groupBox != null)
+            {
+                this.SelectNextControl(textbox, true, true, true, true);
+            }
         }
 
         private void TxtBoxCorrect1_KeyUp(object sender, KeyEventArgs e)
@@ -123,7 +146,6 @@ namespace Word2
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
                 e.SuppressKeyPress = true; // Stop backspace key from being processed
-                correctLetters[0] = ""; // Clear position in list
                 FindCorrectWord(); // Update list box
                 return;
             }
@@ -132,6 +154,8 @@ namespace Word2
         private void TxtBoxCorrect2_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
 
             // If empty, don't process
             if (string.IsNullOrEmpty(textbox.Text))
@@ -145,6 +169,13 @@ namespace Word2
 
             FilterLetter(textbox);
             FindCorrectWord();
+
+            // Focus onto next textbox
+            GroupBox groupBox = textbox.Parent as GroupBox;
+            if (groupBox != null)
+            {
+                this.SelectNextControl(textbox, true, true, true, true);
+            }
         }
 
         private void TxtBoxCorrect2_KeyUp(object sender, KeyEventArgs e)
@@ -155,8 +186,18 @@ namespace Word2
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
                 e.SuppressKeyPress = true; // Stop backspace key from being processed
-                correctLetters[1] = ""; // Clear position in list
                 FindCorrectWord(); // Update list box
+
+                if (string.IsNullOrEmpty(textbox.Text))
+                {
+                    // Focus on previous textbox
+                    GroupBox groupBox = textbox.Parent as GroupBox;
+                    Control prevTextBox = groupBox.GetNextControl(textbox, false);
+                    if (prevTextBox != null && prevTextBox is TextBox)
+                    {
+                        prevTextBox.Focus();
+                    }
+                }
                 return;
             }
         }
@@ -164,6 +205,8 @@ namespace Word2
         private void TxtBoxCorrect3_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
 
             // If empty, don't process
             if (string.IsNullOrEmpty(textbox.Text))
@@ -177,6 +220,13 @@ namespace Word2
 
             FilterLetter(textbox);
             FindCorrectWord();
+
+            // Focus onto next textbox
+            GroupBox groupBox = textbox.Parent as GroupBox;
+            if (groupBox != null)
+            {
+                this.SelectNextControl(textbox, true, true, true, true);
+            }
         }
         private void TxtBoxCorrect3_KeyUp(object sender, KeyEventArgs e)
         {
@@ -186,8 +236,18 @@ namespace Word2
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
                 e.SuppressKeyPress = true; // Stop backspace key from being processed
-                correctLetters[2] = ""; // Clear position in list
                 FindCorrectWord(); // Update list box
+
+                if (string.IsNullOrEmpty(textbox.Text))
+                {
+                    // Focus on previous textbox
+                    GroupBox groupBox = textbox.Parent as GroupBox;
+                    Control prevTextBox = groupBox.GetNextControl(textbox, false);
+                    if (prevTextBox != null && prevTextBox is TextBox)
+                    {
+                        prevTextBox.Focus();
+                    }
+                }
                 return;
             }
         }
@@ -195,6 +255,8 @@ namespace Word2
         private void TxtBoxCorrect4_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
 
             // If empty, don't process
             if (string.IsNullOrEmpty(textbox.Text))
@@ -208,7 +270,14 @@ namespace Word2
 
             FilterLetter(textbox);
             FindCorrectWord();
-        }
+
+            // Focus onto next textbox
+            GroupBox groupBox = textbox.Parent as GroupBox;
+            if (groupBox != null)
+            {
+                this.SelectNextControl(textbox, true, true, true, true);
+            }
+        } 
         private void TxtBoxCorrect4_KeyUp(object sender, KeyEventArgs e)
         {
             TextBox textbox = sender as TextBox;
@@ -217,8 +286,18 @@ namespace Word2
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
                 e.SuppressKeyPress = true; // Stop backspace key from being processed
-                correctLetters[3] = ""; // Clear position in list
                 FindCorrectWord(); // Update list box
+
+                if (string.IsNullOrEmpty(textbox.Text))
+                {
+                    // Focus on previous textbox
+                    GroupBox groupBox = textbox.Parent as GroupBox;
+                    Control prevTextBox = groupBox.GetNextControl(textbox, false);
+                    if (prevTextBox != null && prevTextBox is TextBox)
+                    {
+                        prevTextBox.Focus();
+                    }
+                }
                 return;
             }
         }
@@ -226,6 +305,8 @@ namespace Word2
         private void TxtBoxCorrect5_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
 
             // If empty, don't process
             if (string.IsNullOrEmpty(textbox.Text))
@@ -239,6 +320,13 @@ namespace Word2
 
             FilterLetter(textbox);
             FindCorrectWord();
+
+            // Focus onto next textbox
+            /*GroupBox groupBox = textbox.Parent as GroupBox;
+            if (groupBox != null)
+            {
+                this.SelectNextControl(textbox, true, true, true, true);
+            }*/
         }
         private void TxtBoxCorrect5_KeyUp(object sender, KeyEventArgs e)
         {
@@ -248,8 +336,18 @@ namespace Word2
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
                 e.SuppressKeyPress = true; // Stop backspace key from being processed
-                correctLetters[4] = ""; // Clear position in list
                 FindCorrectWord(); // Update list box
+
+                if (string.IsNullOrEmpty(textbox.Text))
+                {
+                    // Focus on previous textbox
+                    GroupBox groupBox = textbox.Parent as GroupBox;
+                    Control prevTextBox = groupBox.GetNextControl(textbox, false);
+                    if (prevTextBox != null && prevTextBox is TextBox)
+                    {
+                        prevTextBox.Focus();
+                    }
+                }
                 return;
             }
         }
@@ -278,11 +376,15 @@ namespace Word2
         }
         private void btnCorrectClear_Click(object sender, EventArgs e)
         {
-            
+            foreach (Control control in groupBoxCorrect.Controls)
+            {
+                control.Text = "";
+            }
+            txtBoxCorrect1.Focus();
         }   
         private void FilterLetter(TextBox tb)
         {
-            string letter = tb.Text.Trim().ToLower();
+            letter = tb.Text.Trim().ToLower();
             // If not a single character or '-'
             if (letter.Length != 1)
             {

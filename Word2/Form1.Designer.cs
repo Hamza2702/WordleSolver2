@@ -42,7 +42,7 @@
             this.txtBoxCorrect4 = new System.Windows.Forms.TextBox();
             this.txtBoxCorrect3 = new System.Windows.Forms.TextBox();
             this.txtBoxCorrect2 = new System.Windows.Forms.TextBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxValid = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
@@ -59,7 +59,7 @@
             this.btnInvalidClear = new System.Windows.Forms.Button();
             this.btnAddRow = new System.Windows.Forms.Button();
             this.groupBoxCorrect.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxValid.SuspendLayout();
             this.groupBoxInvalid.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -178,6 +178,7 @@
             this.txtBoxCorrect5.Name = "txtBoxCorrect5";
             this.txtBoxCorrect5.Size = new System.Drawing.Size(20, 31);
             this.txtBoxCorrect5.TabIndex = 19;
+            this.txtBoxCorrect5.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect5_KeyUp);
             // 
             // txtBoxCorrect4
             // 
@@ -186,6 +187,7 @@
             this.txtBoxCorrect4.Name = "txtBoxCorrect4";
             this.txtBoxCorrect4.Size = new System.Drawing.Size(20, 31);
             this.txtBoxCorrect4.TabIndex = 18;
+            this.txtBoxCorrect4.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect4_KeyUp);
             // 
             // txtBoxCorrect3
             // 
@@ -194,6 +196,7 @@
             this.txtBoxCorrect3.Name = "txtBoxCorrect3";
             this.txtBoxCorrect3.Size = new System.Drawing.Size(20, 31);
             this.txtBoxCorrect3.TabIndex = 17;
+            this.txtBoxCorrect3.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect3_KeyUp);
             // 
             // txtBoxCorrect2
             // 
@@ -204,18 +207,18 @@
             this.txtBoxCorrect2.TabIndex = 16;
             this.txtBoxCorrect2.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect2_KeyUp);
             // 
-            // groupBox1
+            // groupBoxValid
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.textBox2);
-            this.groupBox1.Controls.Add(this.textBox3);
-            this.groupBox1.Controls.Add(this.textBox4);
-            this.groupBox1.Controls.Add(this.textBox5);
-            this.groupBox1.Location = new System.Drawing.Point(64, 287);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(136, 65);
-            this.groupBox1.TabIndex = 20;
-            this.groupBox1.TabStop = false;
+            this.groupBoxValid.Controls.Add(this.textBox1);
+            this.groupBoxValid.Controls.Add(this.textBox2);
+            this.groupBoxValid.Controls.Add(this.textBox3);
+            this.groupBoxValid.Controls.Add(this.textBox4);
+            this.groupBoxValid.Controls.Add(this.textBox5);
+            this.groupBoxValid.Location = new System.Drawing.Point(64, 287);
+            this.groupBoxValid.Name = "groupBoxValid";
+            this.groupBoxValid.Size = new System.Drawing.Size(136, 65);
+            this.groupBoxValid.TabIndex = 20;
+            this.groupBoxValid.TabStop = false;
             // 
             // textBox1
             // 
@@ -365,7 +368,7 @@
             this.Controls.Add(this.btnValidClear);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.groupBoxInvalid);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBoxValid);
             this.Controls.Add(this.groupBoxCorrect);
             this.Controls.Add(this.btnCorrectClear);
             this.Controls.Add(this.label1);
@@ -379,8 +382,8 @@
             this.Load += new System.EventHandler(this.FormLoad);
             this.groupBoxCorrect.ResumeLayout(false);
             this.groupBoxCorrect.PerformLayout();
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxValid.ResumeLayout(false);
+            this.groupBoxValid.PerformLayout();
             this.groupBoxInvalid.ResumeLayout(false);
             this.groupBoxInvalid.PerformLayout();
             this.ResumeLayout(false);
@@ -403,7 +406,7 @@
         private System.Windows.Forms.TextBox txtBoxCorrect4;
         private System.Windows.Forms.TextBox txtBoxCorrect3;
         private System.Windows.Forms.TextBox txtBoxCorrect2;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxValid;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.TextBox textBox3;

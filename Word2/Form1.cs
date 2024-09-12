@@ -22,10 +22,11 @@ namespace Word2
         Stack<String> invalidLetters = new Stack<string>();
         Stack<String> validLetters = new Stack<string>();
         List<string> correctLetters = new List<string>(new string[5]);
-        String correctWord = "";
+        string[] currentWord = new string[5];
         public WordleSolver()
         {
             InitializeComponent();
+            // Correct
             foreach (Control control in groupBoxCorrect.Controls)
             {
                 if (control is TextBox)
@@ -57,13 +58,50 @@ namespace Word2
                     }
                 }
             }
+            // Valid
+            foreach (Control control in groupBoxValid.Controls)
+            {
+                if (control is TextBox)
+                {
+
+                }
+            }
+        }
+        private void FindCorrectWord()
+        {
+            // Clear list
+            listBoxWords.Items.Clear();
+
+            // Filter the words
+            var filteredWords = words.Where(word =>
+            {
+                // Check if the word matches the exact sequence of letters in correctLetters
+                for (int i = 0; i < correctLetters.Count; i++)
+                {
+                    if (!string.IsNullOrEmpty(correctLetters[i]) && word.Length > i && word[i] != correctLetters[i][0])
+                    {
+                        return false;
+                    }
+                }
+
+                // Check if the word doesn't contain any excluded letters
+                bool excludeCheck = invalidLetters.All(l => string.IsNullOrEmpty(l) || !word.Contains(l));
+
+                return excludeCheck;
+            });
+
+            // Add to list box
+            foreach (var word in filteredWords)
+            {
+                listBoxWords.Items.Add(word);
+            }
         }
 
         private void TxtBoxCorrect1_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
 
-            // If the text box is empty, don't process
+            // If empty don't process
             if (string.IsNullOrEmpty(textbox.Text))
             {
                 correctLetters[0] = "";
@@ -81,13 +119,12 @@ namespace Word2
         {
             TextBox textbox = sender as TextBox;
 
-            // If backspace and the text box is empty, don't process
+            // If backspace and is empty, don't process
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
-                e.SuppressKeyPress = true; // Prevents the backspace key from being processed
-                correctLetters[0] = ""; // Clear the specific position in the list
-                correctWord = string.Join("", correctLetters);
-                FindCorrectWord();
+                e.SuppressKeyPress = true; // Stop backspace key from being processed
+                correctLetters[0] = ""; // Clear position in list
+                FindCorrectWord(); // Update list box
                 return;
             }
         }
@@ -96,14 +133,14 @@ namespace Word2
         {
             TextBox textbox = sender as TextBox;
 
-            // If the text box is empty, don't process
+            // If empty, don't process
             if (string.IsNullOrEmpty(textbox.Text))
             {
-                correctLetters[0] = "";
+                correctLetters[1] = "";
             }
             else
             {
-                correctLetters[0] = textbox.Text;
+                correctLetters[1] = textbox.Text;
             }
 
             FilterLetter(textbox);
@@ -114,36 +151,108 @@ namespace Word2
         {
             TextBox textbox = sender as TextBox;
 
-            // If backspace and the text box is empty, don't process
+            // If backspace and is empty, don't process
             if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
             {
-                e.SuppressKeyPress = true; // Prevents the backspace key from being processed
-                correctLetters[1] = ""; // Clear the specific position in the list
-                FindCorrectWord();
-                correctWord = string.Join("", correctLetters);
+                e.SuppressKeyPress = true; // Stop backspace key from being processed
+                correctLetters[1] = ""; // Clear position in list
+                FindCorrectWord(); // Update list box
                 return;
             }
         }
         // TEXT BOX 3
         private void TxtBoxCorrect3_TextChanged(object sender, EventArgs e)
         {
-            TextBox textbox1 = sender as TextBox;
-            //correctLetters.Push(txtBoxCorrect3.Text);
+            TextBox textbox = sender as TextBox;
+
+            // If empty, don't process
+            if (string.IsNullOrEmpty(textbox.Text))
+            {
+                correctLetters[2] = "";
+            }
+            else
+            {
+                correctLetters[2] = textbox.Text;
+            }
+
+            FilterLetter(textbox);
             FindCorrectWord();
         }
+        private void TxtBoxCorrect3_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+
+            // If backspace and is empty, don't process
+            if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
+            {
+                e.SuppressKeyPress = true; // Stop backspace key from being processed
+                correctLetters[2] = ""; // Clear position in list
+                FindCorrectWord(); // Update list box
+                return;
+            }
+        }
+        // TEXT BOX 4
         private void TxtBoxCorrect4_TextChanged(object sender, EventArgs e)
         {
-            TextBox textbox1 = sender as TextBox;
-            //correctLetters.Push(txtBoxCorrect4.Text);
+            TextBox textbox = sender as TextBox;
+
+            // If empty, don't process
+            if (string.IsNullOrEmpty(textbox.Text))
+            {
+                correctLetters[3] = "";
+            }
+            else
+            {
+                correctLetters[3] = textbox.Text;
+            }
+
+            FilterLetter(textbox);
             FindCorrectWord();
         }
+        private void TxtBoxCorrect4_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+
+            // If backspace and is empty, don't process
+            if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
+            {
+                e.SuppressKeyPress = true; // Stop backspace key from being processed
+                correctLetters[3] = ""; // Clear position in list
+                FindCorrectWord(); // Update list box
+                return;
+            }
+        }
+        // TEXT BOX 5
         private void TxtBoxCorrect5_TextChanged(object sender, EventArgs e)
         {
-            TextBox textbox1 = sender as TextBox;
-            //correctLetters.Push(txtBoxCorrect5.Text);
+            TextBox textbox = sender as TextBox;
+
+            // If empty, don't process
+            if (string.IsNullOrEmpty(textbox.Text))
+            {
+                correctLetters[4] = "";
+            }
+            else
+            {
+                correctLetters[4] = textbox.Text;
+            }
+
+            FilterLetter(textbox);
             FindCorrectWord();
         }
+        private void TxtBoxCorrect5_KeyUp(object sender, KeyEventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
 
+            // If backspace and is empty, don't process
+            if (e.KeyCode == Keys.Back && string.IsNullOrEmpty(textbox.Text))
+            {
+                e.SuppressKeyPress = true; // Stop backspace key from being processed
+                correctLetters[4] = ""; // Clear position in list
+                FindCorrectWord(); // Update list box
+                return;
+            }
+        }
         private void FormLoad(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
@@ -170,38 +279,7 @@ namespace Word2
         private void btnCorrectClear_Click(object sender, EventArgs e)
         {
             
-        }
-
-        private void FindCorrectWord()
-        {
-            // Clear list
-            listBoxWords.Items.Clear();
-
-            // Filter the words
-            var filteredWords = words.Where(word =>
-            {
-                if (correctLetters.Any(l => !string.IsNullOrEmpty(l)))
-                {
-                    // Check if each word contains the required amount of letters
-                    bool includeCheck = correctLetters.All(l => string.IsNullOrEmpty(l) || word.Count(c => c == l[0]) >= correctLetters.Count(x => x == l));
-
-                    // Check if the word doesn't contain any excluded letters
-                    bool excludeCheck = invalidLetters.All(l => string.IsNullOrEmpty(l) || !word.Contains(l));
-
-                    return includeCheck && excludeCheck;
-                }
-                return false;
-            });
-
-            // Add to list box
-            foreach (var word in filteredWords)
-            {
-                listBoxWords.Items.Add(word);
-            }
-
-            MessageBox.Show(correctWord);
-        }
-
+        }   
         private void FilterLetter(TextBox tb)
         {
             string letter = tb.Text.Trim().ToLower();

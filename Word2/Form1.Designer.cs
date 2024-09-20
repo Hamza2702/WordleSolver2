@@ -44,11 +44,11 @@
             this.txtBoxCorrect3 = new System.Windows.Forms.TextBox();
             this.txtBoxCorrect2 = new System.Windows.Forms.TextBox();
             this.groupBoxValid = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.txtBoxValid5 = new System.Windows.Forms.TextBox();
+            this.txtBoxValid4 = new System.Windows.Forms.TextBox();
+            this.txtBoxValid3 = new System.Windows.Forms.TextBox();
+            this.txtBoxValid2 = new System.Windows.Forms.TextBox();
+            this.txtBoxValid1 = new System.Windows.Forms.TextBox();
             this.groupBoxInvalid = new System.Windows.Forms.GroupBox();
             this.txtBoxInvalid5 = new System.Windows.Forms.TextBox();
             this.txtBoxInvalid4 = new System.Windows.Forms.TextBox();
@@ -71,7 +71,7 @@
             this.txtBoxCorrect1.Name = "txtBoxCorrect1";
             this.txtBoxCorrect1.Size = new System.Drawing.Size(20, 31);
             this.txtBoxCorrect1.TabIndex = 15;
-            this.txtBoxCorrect1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect1_KeyUp);
+            this.txtBoxCorrect1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.TxtBoxCorrect1_KeyDown);
             // 
             // label1
             // 
@@ -212,56 +212,56 @@
             // 
             // groupBoxValid
             // 
-            this.groupBoxValid.Controls.Add(this.textBox1);
-            this.groupBoxValid.Controls.Add(this.textBox2);
-            this.groupBoxValid.Controls.Add(this.textBox3);
-            this.groupBoxValid.Controls.Add(this.textBox4);
-            this.groupBoxValid.Controls.Add(this.textBox5);
+            this.groupBoxValid.Controls.Add(this.txtBoxValid5);
+            this.groupBoxValid.Controls.Add(this.txtBoxValid4);
+            this.groupBoxValid.Controls.Add(this.txtBoxValid3);
+            this.groupBoxValid.Controls.Add(this.txtBoxValid2);
+            this.groupBoxValid.Controls.Add(this.txtBoxValid1);
             this.groupBoxValid.Location = new System.Drawing.Point(64, 287);
             this.groupBoxValid.Name = "groupBoxValid";
             this.groupBoxValid.Size = new System.Drawing.Size(136, 65);
             this.groupBoxValid.TabIndex = 20;
             this.groupBoxValid.TabStop = false;
             // 
-            // textBox1
+            // txtBoxValid5
             // 
-            this.textBox1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(110, 19);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(20, 31);
-            this.textBox1.TabIndex = 19;
+            this.txtBoxValid5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxValid5.Location = new System.Drawing.Point(110, 19);
+            this.txtBoxValid5.Name = "txtBoxValid5";
+            this.txtBoxValid5.Size = new System.Drawing.Size(20, 31);
+            this.txtBoxValid5.TabIndex = 19;
             // 
-            // textBox2
+            // txtBoxValid4
             // 
-            this.textBox2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(84, 19);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(20, 31);
-            this.textBox2.TabIndex = 18;
+            this.txtBoxValid4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxValid4.Location = new System.Drawing.Point(84, 19);
+            this.txtBoxValid4.Name = "txtBoxValid4";
+            this.txtBoxValid4.Size = new System.Drawing.Size(20, 31);
+            this.txtBoxValid4.TabIndex = 18;
             // 
-            // textBox3
+            // txtBoxValid3
             // 
-            this.textBox3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(58, 19);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(20, 31);
-            this.textBox3.TabIndex = 17;
+            this.txtBoxValid3.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxValid3.Location = new System.Drawing.Point(58, 19);
+            this.txtBoxValid3.Name = "txtBoxValid3";
+            this.txtBoxValid3.Size = new System.Drawing.Size(20, 31);
+            this.txtBoxValid3.TabIndex = 17;
             // 
-            // textBox4
+            // txtBoxValid2
             // 
-            this.textBox4.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(32, 19);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(20, 31);
-            this.textBox4.TabIndex = 16;
+            this.txtBoxValid2.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxValid2.Location = new System.Drawing.Point(32, 19);
+            this.txtBoxValid2.Name = "txtBoxValid2";
+            this.txtBoxValid2.Size = new System.Drawing.Size(20, 31);
+            this.txtBoxValid2.TabIndex = 16;
             // 
-            // textBox5
+            // txtBoxValid1
             // 
-            this.textBox5.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox5.Location = new System.Drawing.Point(6, 19);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(20, 31);
-            this.textBox5.TabIndex = 15;
+            this.txtBoxValid1.Font = new System.Drawing.Font("Poppins", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtBoxValid1.Location = new System.Drawing.Point(6, 19);
+            this.txtBoxValid1.Name = "txtBoxValid1";
+            this.txtBoxValid1.Size = new System.Drawing.Size(20, 31);
+            this.txtBoxValid1.TabIndex = 15;
             // 
             // groupBoxInvalid
             // 
@@ -315,6 +315,7 @@
             this.txtBoxInvalid1.Name = "txtBoxInvalid1";
             this.txtBoxInvalid1.Size = new System.Drawing.Size(20, 31);
             this.txtBoxInvalid1.TabIndex = 15;
+            this.txtBoxInvalid1.KeyUp += new System.Windows.Forms.KeyEventHandler(this.TxtBoxInvalid1_KeyUp);
             // 
             // label3
             // 
@@ -412,11 +413,11 @@
         private System.Windows.Forms.TextBox txtBoxCorrect3;
         private System.Windows.Forms.TextBox txtBoxCorrect2;
         private System.Windows.Forms.GroupBox groupBoxValid;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox txtBoxValid5;
+        private System.Windows.Forms.TextBox txtBoxValid4;
+        private System.Windows.Forms.TextBox txtBoxValid3;
+        private System.Windows.Forms.TextBox txtBoxValid2;
+        private System.Windows.Forms.TextBox txtBoxValid1;
         private System.Windows.Forms.GroupBox groupBoxInvalid;
         private System.Windows.Forms.TextBox txtBoxInvalid5;
         private System.Windows.Forms.TextBox txtBoxInvalid4;

@@ -75,14 +75,14 @@ namespace Word2
                     {
                         (control as TextBox).TextChanged += TxtBoxValid3_TextChanged;
                     }
-                    /*if (control.Name.Contains("txtBoxValid4"))
+                    if (control.Name.Contains("txtBoxValid4"))
                     {
                         (control as TextBox).TextChanged += TxtBoxValid4_TextChanged;
                     }
                     if (control.Name.Contains("txtBoxValid5"))
                     {
                         (control as TextBox).TextChanged += TxtBoxValid5_TextChanged;
-                    }*/
+                    }
                 }
             }
             // Invalid
@@ -93,6 +93,42 @@ namespace Word2
                     if (control.Name.Contains("txtBoxInvalid1"))
                     {
                         (control as TextBox).TextChanged += TxtBoxInvalid1_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid2"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid2_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid3"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid3_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid4"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid4_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid5"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid5_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid6"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid6_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid7"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid7_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid8"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid8_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid9"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid9_TextChanged;
+                    }
+                    if (control.Name.Contains("txtBoxInvalid10"))
+                    {
+                        (control as TextBox).TextChanged += TxtBoxInvalid10_TextChanged;
                     }
                 }
             }
@@ -254,6 +290,48 @@ namespace Word2
             FindCorrectWord();
         }
 
+        // TEXT BOX 4
+        private void TxtBoxValid4_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
+
+            // If empty, don't process
+            if (string.IsNullOrEmpty(textbox.Text))
+            {
+                validLetters[3] = "";
+            }
+            else
+            {
+                validLetters[3] = textbox.Text;
+            }
+
+            FilterLetter(textbox);
+            FindCorrectWord();
+        }
+
+        // TEXT BOX 5
+        private void TxtBoxValid5_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            letter = textbox.Text.Trim().ToLower();
+            textbox.Text = letter;
+
+            // If empty, don't process
+            if (string.IsNullOrEmpty(textbox.Text))
+            {
+                validLetters[4] = "";
+            }
+            else
+            {
+                validLetters[4] = textbox.Text;
+            }
+
+            FilterLetter(textbox);
+            FindCorrectWord();
+        }
+
         private void TxtBoxInvalid1_KeyUp(object sender, KeyEventArgs e)
         {
             TextBox textbox = sender as TextBox;
@@ -265,17 +343,76 @@ namespace Word2
         private void TxtBoxInvalid1_TextChanged(object sender, EventArgs e)
         {
             TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 0);
+        }
+        // TEXT BOX 2
+        private void TxtBoxInvalid2_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 1);
+        }
+        // TEXT BOX 3
+        private void TxtBoxInvalid3_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 2);
+        }
+        // TEXT BOX 4
+        private void TxtBoxInvalid4_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 3);
+        }
+        // TEXT BOX 5
+        private void TxtBoxInvalid5_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 4);
+        }
+        // TEXT BOX 6
+        private void TxtBoxInvalid6_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 5);
+        }
+        // TEXT BOX 7
+        private void TxtBoxInvalid7_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 6);
+        }
+        // TEXT BOX 8
+        private void TxtBoxInvalid8_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 7);
+        }
+        // TEXT BOX 9
+        private void TxtBoxInvalid9_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 8);
+        }
+        // TEXT BOX 10
+        private void TxtBoxInvalid10_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, 9);
+        }
+
+        private void InvalidTextChanged(TextBox textbox, EventArgs e, int v)
+        {
             letter = textbox.Text.Trim().ToLower();
             textbox.Text = letter;
 
             // If empty, don't process
             if (string.IsNullOrEmpty(textbox.Text))
             {
-                invalidLetters[0] = "";
+                invalidLetters[v] = "";
             }
             else
             {
-                invalidLetters[0] = textbox.Text;
+                invalidLetters[v] = textbox.Text;
             }
 
             FilterLetter(textbox);
@@ -401,12 +538,21 @@ namespace Word2
 
                     // Add the new TextBox to the GroupBox
                     groupBoxInvalid.Controls.Add(txtBoxInvalid);
+
+                    // Assign the TextChanged event handler
+                    txtBoxInvalid.TextChanged += new EventHandler(TxtBoxInvalid_TextChanged);
                 }
 
                 // Update the count of existing textboxes
                 existingTextBoxCount += newTextBoxCount;
             }
             newTextBoxCount += 5;
+        }
+
+        private void TxtBoxInvalid_TextChanged(object sender, EventArgs e)
+        {
+            TextBox textbox = sender as TextBox;
+            InvalidTextChanged(textbox, e, int.Parse(textbox.Name.Replace("txtBoxInvalid", "")) - 1);
         }
 
         private void LoadWordsFromFile(string filePath)

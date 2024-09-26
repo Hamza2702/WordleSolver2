@@ -122,7 +122,7 @@
             this.lblPossibleWords.AutoSize = true;
             this.lblPossibleWords.Font = new System.Drawing.Font("Poppins", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblPossibleWords.ForeColor = System.Drawing.Color.White;
-            this.lblPossibleWords.Location = new System.Drawing.Point(379, 127);
+            this.lblPossibleWords.Location = new System.Drawing.Point(320, 127);
             this.lblPossibleWords.Name = "lblPossibleWords";
             this.lblPossibleWords.Size = new System.Drawing.Size(227, 42);
             this.lblPossibleWords.TabIndex = 9;
@@ -134,7 +134,7 @@
             this.listBoxWords.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listBoxWords.FormattingEnabled = true;
             this.listBoxWords.ItemHeight = 16;
-            this.listBoxWords.Location = new System.Drawing.Point(386, 169);
+            this.listBoxWords.Location = new System.Drawing.Point(327, 169);
             this.listBoxWords.Name = "listBoxWords";
             this.listBoxWords.Size = new System.Drawing.Size(265, 288);
             this.listBoxWords.TabIndex = 8;
@@ -144,7 +144,7 @@
             this.lblWordle.AutoSize = true;
             this.lblWordle.Font = new System.Drawing.Font("Poppins", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblWordle.ForeColor = System.Drawing.Color.White;
-            this.lblWordle.Location = new System.Drawing.Point(166, 9);
+            this.lblWordle.Location = new System.Drawing.Point(119, 9);
             this.lblWordle.Name = "lblWordle";
             this.lblWordle.Size = new System.Drawing.Size(381, 84);
             this.lblWordle.TabIndex = 7;
@@ -366,7 +366,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.ClientSize = new System.Drawing.Size(681, 581);
+            this.ClientSize = new System.Drawing.Size(627, 581);
             this.Controls.Add(this.btnAddRow);
             this.Controls.Add(this.btnInvalidClear);
             this.Controls.Add(this.btnValidClear);
